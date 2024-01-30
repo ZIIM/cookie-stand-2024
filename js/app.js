@@ -25,13 +25,58 @@ function createUnorderedList(data, hours) {
   }
   return ul;
 }
+// get drawrow function
+// TAKEN FROM 07 Demo
+let bodyElement = document.getElementById('table-data');
+
+let tableRow = document.createElement('tr');
+bodyElement.appendChild(tableRow);
+
+function createCell(value, row) {
+    let cell = document.createElement('td');
+    cell.textContent = value;
+    row.appendChild(cell);
+  }
+// ^^^^^^^ TAKEN FROM 07 DEMO ^^^^^^^^^
+
+// CONSTRUCTOR FUNCTION BELOW
+function City(minCust, maxCust, AvgCookies,){
+    this.minCust = minCust;
+    this.maxCust = maxCust;
+    this.AvgCookies = AvgCookies;
+    this.row = document.createElement('tr');
+}
+
+// ?????????Prototype array?????????????
+City.prototype.hours = function(){
+
+    perhour = ['6am', '7am', '8am', '9am','10am','11am', '12pm','1pm', '2pm', '3pm', '4pm', '5pm',
+    '6pm', '7pm',];
+ } ;
+
+// Prototype table
+City.prototype.drawRow = function(){
+    createCell(this.minCust, this.row);
+    createCell(this.maxCust, this.row);
+    createCell(this.AvgCookies, this.row);
+    bodyElement.appendChild(this.row);
+}
+
+let Seattle = new City('Seattle',23,65,6.3);
+Seattle.drawRow();
+console.log(Seattle);
+
+//^^^^^^^^CONSTRUCTOR FUNCTION^^^^^^
+
 // seattle object
 let citySeattle = {
     city: 'Seattle',
     minCust: 23,
     maxCust: 65,
     avgCookies: 6.3,
+    document_id: document.getElementById('City-Seattle'),
     getRandomCustomers: generateRandomCustomers,
+    // Make hours a global const at the top!
     hours: [
         '6am',
         '7am',
@@ -51,8 +96,12 @@ let citySeattle = {
     cookieSales: [],
     projectedCookieSales: function () {
       for (let i = 0; i < this.hours.length; i++) {
+        // REMEMBER TO ADD DEBUGGER IN LOOP
+        // debugger;
         let customers = this.getRandomCustomers(); // generates random customers per hour
         let cookiesPurchased = customers * this.avgCookies; // Getting amount of cookies purchased
+        // ADD TOTAL HERE!!!!!!
+        // let total = total + cookiesPurchased;
         this.cookieSales.push(cookiesPurchased); // Putting our previously collected data into our empty array
       }
     },
@@ -64,6 +113,22 @@ let citySeattle = {
 
   let seattleSalesList = createUnorderedList(citySeattle.cookieSales, citySeattle.hours); // list of sales with hours
 document.body.appendChild(seattleSalesList); // shows in html
+
+
+
+// TABLES
+
+//   let bodyElement = document.getElementById('table-data');
+  
+//   let tableRow = document.createElement('tr');
+//   bodyElement.appendChild(tableRow);
+
+//   let tableCell1 = document.createElement('td');
+//   tableCell1.textContent = 'Seattle';
+
+// ^^^^ TABLES ^^^^
+
+
 
 // let cityTokyo = {
 //     name: 'Tokyo',

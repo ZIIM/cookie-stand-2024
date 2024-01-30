@@ -5,3 +5,13 @@ h1 {
 * {
     font-family: Arial, sans-serif;
   }
+
+table {
+    width:auto;
+    margin: 0 auto;
+}
+
+th {
+    text-align: left;
+    border-bottom: thin solid black;
+}
