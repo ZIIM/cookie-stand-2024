@@ -29,6 +29,7 @@ let citySeattle = {
         '6pm',
         '7pm',
     ],
+    cookieSales: [],
 }
 
 // let cityTokyo = {
@@ -62,3 +63,4 @@ let citySeattle = {
 //     avgCookies: 4.6,
 //     getRandomCustomers: generateRandomCustomers,
 // }
+
