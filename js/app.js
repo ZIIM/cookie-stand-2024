@@ -53,13 +53,20 @@ function hour_list(){
     let city_name_cell = document.createElement('td');
     city_name_cell.textContent = this.city_name;
     table_row.appendChild(city_name_cell);
-  
+    
     for (let hour = 0; hour < hours.length; hour++) {
-      let table_data = document.createElement('td');
-      table_data.textContent = this.cookies_purchased();
-      table_row.appendChild(table_data);
-      total_cookies = this.cookies_purchased() + total_cookies;
-    }
+        let table_data = document.createElement('td');
+        let cookies = this.cookies_purchased();
+        table_data.textContent = cookies;
+        table_row.appendChild(table_data);
+        total_cookies = cookies + total_cookies;
+      }
+    // for (let hour = 0; hour < hours.length; hour++) {
+    //   let table_data = document.createElement('td');
+    //   table_data.textContent = this.cookies_purchased();
+    //   table_row.appendChild(table_data);
+    //   total_cookies = this.cookies_purchased() + total_cookies;
+    // }
   
     let total_cell = document.createElement('td');
     total_cell.textContent = total_cookies;
