@@ -3,24 +3,24 @@
 // HOURS 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-// shows 
+// shows hours in head on top of table
 function hour_list(){
-    let table_body = document.getElementById('table-body');
+    let table_head = document.getElementById('table-head');
     let table_row = document.createElement('tr');
-    let empty_cell = document.createElement('td');
+    let empty_cell = document.createElement('th');
     table_row.appendChild(empty_cell);
   
     for(let hour = 0; hour < hours.length; hour++){
-      let table_data = document.createElement('td');
+      let table_data = document.createElement('th');
       table_data.textContent = hours[hour];
       table_row.appendChild(table_data);
     }
   
-    let total_cell = document.createElement('td');
+    let total_cell = document.createElement('th');
     total_cell.textContent = 'Daily Location Total';
     table_row.appendChild(total_cell);
   
-    table_body.appendChild(table_row);
+    table_head.appendChild(table_row);
   }
 //   CITY CONSTRUCTOR takes in name min/max cust and avg cookies
   function City(city_name, min_cust, max_cust, avg_cookies){
@@ -75,7 +75,7 @@ function hour_list(){
     table_body.appendChild(table_row);
   };
   
-// This was stolen from chatgpt and i looked at Ahmeds work for help
+// This was stolen from chatgpt and i looked at Ahmeds work for help it adds the final row that totals under all the store hours
   function footer_row() {
     let table = document.getElementById('table-body');
     let number_of_columns = table.rows[0].cells.length;
@@ -108,6 +108,7 @@ function hour_list(){
   let Dubai = new City('Dubai', 11, 38, 3.7);
   let Paris = new City('Paris', 20, 38, 2.3);
   let Lima = new City('Lima', 2, 16, 4.6);
+
   
   hour_list();
   Seattle.draw_row();
@@ -118,6 +119,7 @@ function hour_list(){
   footer_row();
   
 
+// MY OLD REFERANCE
 // function generateRandomCustomers() {
 //     //math.floor function constructed with help from ChatGPT
 //     return (
