@@ -10,8 +10,3 @@ table {
     width:auto;
     margin: 0 auto;
 }
-
-th {
-    text-align: left;
-    border-bottom: thin solid black;
-}
