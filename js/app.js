@@ -129,10 +129,15 @@ function hour_list(){
     let avg_cookies = event.target.avg_cookies.value;
     
     let newer_city = new City(city_name, parseInt(min_cust), parseInt(max_cust), parseInt(avg_cookies));
-    footer_row.push(newer_city);
-    footer_row.render();
-  }
+    newer_city.draw_row();
 
+    footer_row();
+
+    // Clear the form
+    formElement.reset();
+}
+
+formElement.addEventListener('submit', buttonClick);
 // MY OLD REFERANCE
 // function generateRandomCustomers() {
 //     //math.floor function constructed with help from ChatGPT
