@@ -117,7 +117,21 @@ function hour_list(){
   Paris.draw_row();
   Lima.draw_row();
   footer_row();
-  
+
+  let formElement = document.getElementById('cookie-stand')
+ 
+  function buttonClick(event){
+    event.preventDefault();
+
+    let city_name = event.target.city_name.value;
+    let min_cust = event.target.min_cust.value;
+    let max_cust = event.target.max_cust.value;
+    let avg_cookies = event.target.avg_cookies.value;
+    
+    let newer_city = new City(city_name, parseInt(min_cust), parseInt(max_cust), parseInt(avg_cookies));
+    footer_row.push(newer_city);
+    footer_row.render();
+  }
 
 // MY OLD REFERANCE
 // function generateRandomCustomers() {

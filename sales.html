@@ -9,6 +9,30 @@
         <header>
             <h1>Salmon Cookies</h1>
         </header>
+        <main>
+            <form id = "cookie-stand">
+                <fieldset>
+                    <legend>Salmon Cookie Stand</legend>
+                        <div class="input-container">
+                            <label for="city">City</label>
+                            <input id="city" name="city" type="text" placeholder="Seattle">
+                        </div>
+                        <div class="input-container">
+                            <label for="min-cust">Minimum Customers Per Hour</label>
+                            <input id="min-cust" name="min-cust" type="text" placeholder="1">
+                        </div>
+                        <div class="input-container">
+                            <label for="max-cust">Maximum Customers Per Hour</label>
+                            <input id="max-cust" type="number"
+                            placeholder="13">
+                        </div>
+                        <div class="input-container">
+                            <label for="avg-cust">Average Cookies Per Sale</label>
+                            <input id="avg-cust" type="number" placeholder="">
+                        </div>
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
             <div class ="table-container">
                 <table>
                     <thead id="table-head">
@@ -20,6 +44,7 @@
                     </tfoot>
                 </table>
             </div>
+        </main>
     <script src="js/app.js"></script>
     </body>
 </html>
