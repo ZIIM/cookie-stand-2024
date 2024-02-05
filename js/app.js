@@ -61,12 +61,6 @@ function hour_list(){
         table_row.appendChild(table_data);
         total_cookies = cookies + total_cookies;
       }
-    // for (let hour = 0; hour < hours.length; hour++) {
-    //   let table_data = document.createElement('td');
-    //   table_data.textContent = this.cookies_purchased();
-    //   table_row.appendChild(table_data);
-    //   total_cookies = this.cookies_purchased() + total_cookies;
-    // }
   
     let total_cell = document.createElement('td');
     total_cell.textContent = total_cookies;
@@ -119,25 +113,23 @@ function hour_list(){
   footer_row();
 
   let formElement = document.getElementById('cookie-stand')
- 
-  function buttonClick(event){
+  formElement.addEventListener('submit', handleSubmit);
+
+  function handleSubmit(event){
     event.preventDefault();
 
-    let city_name = event.target.city_name.value;
-    let min_cust = event.target.min_cust.value;
-    let max_cust = event.target.max_cust.value;
-    let avg_cookies = event.target.avg_cookies.value;
+    let cityName = event.target.cityName.value;
+    let min_cust = Number(event.target.min_cust.value);
+    let max_cust = Number(event.target.max_cust.value);
+    let avg_cust = Number(event.target.avg_cust.value);
     
-    let newer_city = new City(city_name, parseInt(min_cust), parseInt(max_cust), parseInt(avg_cookies));
+    let newer_city = new City(cityName, parseInt(min_cust), parseInt(max_cust), parseInt(avg_cust));
+
+    stores.push(newer_city);
     newer_city.draw_row();
-
-    footer_row();
-
-    // Clear the form
+    newer_city.footer_row();
     formElement.reset();
 }
-
-formElement.addEventListener('submit', buttonClick);
 // MY OLD REFERANCE
 // function generateRandomCustomers() {
 //     //math.floor function constructed with help from ChatGPT
